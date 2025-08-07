@@ -37,7 +37,7 @@ const sampleVerses = [
   {
     id: 2,
     verseNumber: 2,
-    sanskrit: "उद्यद्भानुसहस्राभा चतुर्बाहुसमन्विता।\nरागस्वरूपपाशाढ्या क्रोधाकारांकुशो��्ज्वला॥",
+    sanskrit: "उद्यद्भानुसहस्राभा चतुर्बाहुसमन्विता।\nरागस्वरूपपाशाढ्या क्रोधाकारांकुशोज्ज्वला॥",
     transliteration: "Udyad bhanu sahasrabha chaturbahu samanvita |\nRaga svarupa pashaDhya krodhakaran kushojjvala ||",
     english: "Radiant as a thousand rising suns, endowed with four arms,\nHolding the noose of attachment and the goad of righteous anger bright.",
     hindi: "हजार उदीयमान सूर्यों के समान तेजस्वी, चार भुजाओं से युक्त,\nराग रूपी पाश और क्रोध रूपी अंकुश से शोभित।",

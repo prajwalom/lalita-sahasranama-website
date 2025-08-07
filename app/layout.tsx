@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Lalita Sahasranama - Sacred Names of the Divine Mother",
   description: "Discover the 1000 sacred names of Goddess Lalita Tripurasundari with meanings in English and Hindi. A spiritual journey of devotion and enlightenment.",
   keywords: "Lalita Sahasranama, Divine Mother, Goddess Lalita, Sanskrit names, spiritual practice, devotion",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({

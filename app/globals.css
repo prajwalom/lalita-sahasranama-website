@@ -10,8 +10,8 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 25 95% 53%;
-    --primary-foreground: 26 83% 14%;
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 98%;
     --secondary: 210 40% 96%;
     --secondary-foreground: 222.2 84% 4.9%;
     --muted: 210 40% 96%;
@@ -22,7 +22,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 25 95% 53%;
+    --ring: 0 84% 60%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -32,25 +32,25 @@
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
-    --primary: 25 95% 53%;
-    --primary-foreground: 26 83% 14%;
-    --secondary: 12 6.5% 15.1%;
-    --secondary-foreground: 60 9.1% 97.8%;
-    --muted: 12 6.5% 15.1%;
-    --muted-foreground: 24 5.4% 63.9%;
-    --accent: 12 6.5% 15.1%;
-    --accent-foreground: 60 9.1% 97.8%;
-    --destructive: 0 72.2% 50.6%;
-    --destructive-foreground: 60 9.1% 97.8%;
-    --border: 12 6.5% 15.1%;
-    --input: 12 6.5% 15.1%;
-    --ring: 25 95% 53%;
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 72% 51%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -75,21 +75,21 @@
   letter-spacing: 0.025em;
 }
 
-/* Divine scrollbar */
+/* Improved scrollbar for better UX */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-amber-50 dark:bg-amber-950;
+  @apply bg-red-50 dark:bg-red-950;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gradient-to-b from-amber-400 to-orange-400 rounded-full;
+  @apply bg-gradient-to-b from-red-400 to-pink-400 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply from-amber-500 to-orange-500;
+  @apply from-red-500 to-pink-500;
 }
 
 /* Sacred Animations */
@@ -126,35 +126,6 @@
   }
 }
 
-@keyframes gradient {
-  0%, 100% {
-    background-size: 200% 200%;
-    background-position: left center;
-  }
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(245, 158, 11, 0.8);
-  }
-}
-
 @keyframes spin-slow {
   from {
     transform: rotate(0deg);
@@ -164,12 +135,12 @@
   }
 }
 
-@keyframes divine-shimmer {
-  0% {
-    background-position: -200% center;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  100% {
-    background-position: 200% center;
+  50% {
+    transform: translateY(-10px);
   }
 }
 
@@ -195,64 +166,96 @@
   animation: slide-down 0.6s ease-out forwards;
 }
 
-.animate-gradient {
-  background: linear-gradient(-45deg, #f59e0b, #ea580c, #dc2626, #e11d48);
-  background-size: 400% 400%;
-  animation: gradient 4s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+/* Responsive text scaling */
+@media (max-width: 640px) {
+  .font-sanskrit {
+    font-size: clamp(14px, 4vw, 18px);
+    line-height: 1.6;
+  }
 }
 
-.animate-spin-slow {
-  animation: spin-slow 4s linear infinite;
+/* Enhanced focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-4 focus:ring-red-500/50 focus:ring-offset-2 dark:focus:ring-offset-gray-900;
 }
 
-.animate-divine-shimmer {
+/* Improved button hover states */
+.btn-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(239, 68, 68, 0.25);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px -12px rgba(239, 68, 68, 0.25);
+}
+
+/* Mobile-optimized touch targets */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .touch-target {
+    padding: 12px;
+  }
+}
+
+/* Improved selection styles */
+::selection {
+  background: rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+
+::-moz-selection {
+  background: rgba(239, 68, 68, 0.3);
+  color: #dc2626;
+}
+
+/* Responsive spacing utilities */
+.responsive-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+.responsive-margin {
+  @apply mx-4 sm:mx-6 lg:mx-8;
+}
+
+/* Loading states */
+.loading-shimmer {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   background-size: 200% 100%;
-  animation: divine-shimmer 2s infinite;
+  animation: shimmer 2s infinite;
 }
 
-/* Sacred hover effects */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
-.hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
-}
-
-/* Divine mode transitions */
-* {
-  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
-}
-
-/* Sacred glow effects */
-.devotional-glow {
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
-  transition: box-shadow 0.4s ease;
-}
-
-.devotional-glow:hover {
-  box-shadow: 0 0 50px rgba(245, 158, 11, 0.5);
-}
-
-/* Sacred text effects */
-.sacred-text {
-  text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-}
-
-/* Responsive animations */
+/* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -261,86 +264,97 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* Enhanced focus states */
-.focus-ring {
-  @apply focus:outline-none focus:ring-4 focus:ring-amber-500/50 focus:ring-offset-2 dark:focus:ring-offset-amber-950;
-}
-
-/* Divine page transitions */
-.page-transition {
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-}
-
-/* Sacred card hover effects */
-.card-hover {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-hover:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 25px 50px -12px rgba(245, 158, 11, 0.25);
-}
-
-/* Divine particle effects */
-@keyframes sparkle {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0) rotate(0deg);
+  
+  .animate-spin-slow {
+    animation: none;
   }
-  50% {
-    opacity: 1;
-    transform: scale(1) rotate(180deg);
+  
+  .animate-float {
+    animation: none;
   }
 }
 
-.sparkle {
-  animation: sparkle 2.5s ease-in-out infinite;
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card-hover {
+    border: 2px solid currentColor;
+  }
+  
+  .btn-hover {
+    border: 2px solid currentColor;
+  }
 }
 
-/* Sacred button animations */
-.btn-sacred {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s ease;
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .font-sanskrit {
+    color: black !important;
+  }
+  
+  .animate-spin-slow,
+  .animate-float {
+    animation: none !important;
+  }
 }
 
-.btn-sacred::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.6s;
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(10px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+  }
+  
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+  }
 }
 
-.btn-sacred:hover::before {
-  left: 100%;
+/* Custom gradient backgrounds */
+.gradient-red-pink {
+  background: linear-gradient(135deg, #ef4444 0%, #ec4899 100%);
 }
 
-/* Divine loading states */
-.divine-loading {
-  background: linear-gradient(45deg, #f59e0b, #ea580c, #dc2626, #e11d48);
-  background-size: 400% 400%;
-  animation: gradient 3s ease infinite;
+.gradient-pink-rose {
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
 }
 
-/* Sacred selection styles */
-::selection {
-  background: rgba(245, 158, 11, 0.3);
-  color: #92400e;
+/* Sacred geometry patterns */
+.sacred-pattern {
+  background-image: radial-gradient(circle at 25% 25%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
 }
 
-::-moz-selection {
-  background: rgba(245, 158, 11, 0.3);
-  color: #92400e;
+/* Enhanced mobile responsiveness */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-responsive {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+  
+  .heading-responsive {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
 }
 
-/* Divine focus visible */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible for better accessibility */
 .focus-visible:focus-visible {
-  outline: 2px solid #f59e0b;
+  outline: 2px solid #ef4444;
   outline-offset: 2px;
 }
