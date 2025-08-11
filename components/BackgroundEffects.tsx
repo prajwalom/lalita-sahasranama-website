@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 interface BackgroundEffectsProps {
   theme: 'sri-yantra' | 'temple' | 'lotus' | 'cosmic';
-  timeTheme: 'dawn' | 'noon' | 'dusk' | 'night';
+  timeTheme: 'dawn' | 'noon' | 'dusk' | 'night' | 'auto';
   showParticles: boolean;
   reducedMotion: boolean;
 }

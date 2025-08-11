@@ -11,15 +11,19 @@ interface AudioPlayerProps {
   currentVerse: number;
   onVerseChange: (verse: number) => void;
   totalVerses: number;
+  volume: number;
 }
 
-export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }: AudioPlayerProps) {
+export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses, volume }: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(70);
+  const [localVolume, setLocalVolume] = useState(volume);
   const [isMuted, setIsMuted] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Update local volume when prop changes
+  useEffect(() => {
+    setLocalVolume(volume);
+  }, [volume]);
 
   // Simulated audio tracks (in a real app, these would be actual audio files)
   const audioTracks = [
@@ -66,28 +70,28 @@ export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }
   const progress = currentTrack ? (currentTime / currentTrack.duration) * 100 : 0;
 
   return (
-    <Card className="p-4 backdrop-blur-lg bg-white/10 dark:bg-black/20 border-white/20">
+    <Card className="p-4 backdrop-blur-lg bg-white/20 dark:bg-black/20 border-white/30 dark:border-white/20">
       <div className="space-y-4">
         {/* Track Info */}
         <div className="text-center">
-          <h4 className="font-semibold text-white truncate">
+          <h4 className="font-semibold text-gray-800 dark:text-white truncate">
             {currentTrack?.title || `Verse ${currentVerse + 1}`}
           </h4>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             Lalita Sahasranama • Verse {currentVerse + 1} of {totalVerses}
           </p>
         </div>
 
         {/* Progress Bar */}
         <div className="space-y-2">
-          <div className="w-full bg-gray-700 rounded-full h-2">
+          <div className="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2">
             <motion.div
-              className="bg-gradient-to-r from-yellow-400 to-orange-600 h-2 rounded-full"
+              className="bg-gradient-to-r from-amber-500 to-orange-600 dark:from-yellow-400 dark:to-orange-600 h-2 rounded-full"
               style={{ width: `${progress}%` }}
               transition={{ duration: 0.5 }}
             />
           </div>
-          <div className="flex justify-between text-xs text-gray-400">
+          <div className="flex justify-between text-xs text-gray-600 dark:text-gray-400">
             <span>{formatTime(currentTime)}</span>
             <span>{formatTime(currentTrack?.duration || 0)}</span>
           </div>
@@ -99,7 +103,7 @@ export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }
             onClick={() => onVerseChange(Math.max(0, currentVerse - 1))}
             variant="ghost"
             size="sm"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
           >
             <SkipBack className="w-4 h-4" />
           </Button>
@@ -107,7 +111,7 @@ export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }
           <Button
             onClick={togglePlay}
             size="lg"
-            className="bg-gradient-to-r from-yellow-400 to-orange-600 hover:from-yellow-500 hover:to-orange-700 rounded-full w-12 h-12"
+            className="bg-gradient-to-r from-amber-500 to-orange-600 dark:from-yellow-400 dark:to-orange-600 hover:from-amber-600 hover:to-orange-700 rounded-full w-12 h-12"
           >
             {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
           </Button>
@@ -116,7 +120,7 @@ export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }
             onClick={() => onVerseChange(Math.min(totalVerses - 1, currentVerse + 1))}
             variant="ghost"
             size="sm"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
           >
             <SkipForward className="w-4 h-4" />
           </Button>
@@ -128,15 +132,15 @@ export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }
             onClick={toggleMute}
             variant="ghost"
             size="sm"
-            className="text-gray-400 hover:text-white"
+            className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
           >
-            {isMuted || volume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+            {isMuted || localVolume === 0 ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
           </Button>
           
           <Slider
-            value={[isMuted ? 0 : volume]}
+            value={[isMuted ? 0 : localVolume]}
             onValueChange={([value]) => {
-              setVolume(value);
+              setLocalVolume(value);
               setIsMuted(value === 0);
             }}
             max={100}
@@ -144,8 +148,8 @@ export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }
             className="flex-1"
           />
           
-          <span className="text-xs text-gray-400 w-8 text-right">
-            {isMuted ? 0 : volume}
+          <span className="text-xs text-gray-600 dark:text-gray-400 w-8 text-right">
+            {isMuted ? 0 : localVolume}
           </span>
         </div>
 
@@ -154,7 +158,7 @@ export default function AudioPlayer({ currentVerse, onVerseChange, totalVerses }
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="bg-gradient-to-t from-yellow-400 to-orange-600 w-1 rounded-full"
+              className="bg-gradient-to-t from-amber-500 to-orange-600 dark:from-yellow-400 dark:to-orange-600 w-1 rounded-full"
               animate={{
                 height: isPlaying ? [4, Math.random() * 24 + 4, 4] : 4,
               }}

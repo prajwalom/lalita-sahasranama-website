@@ -26,17 +26,17 @@ export default function SpiritualQuotes() {
   };
 
   return (
-    <Card className="p-6 backdrop-blur-lg bg-white/10 dark:bg-black/20 border-white/20">
+    <Card className="p-6 backdrop-blur-lg bg-white/20 dark:bg-black/20 border-white/30 dark:border-white/20">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2">
-          <BookOpen className="w-5 h-5 text-yellow-400" />
-          <h3 className="text-lg font-bold text-yellow-400">Sacred Wisdom</h3>
+          <BookOpen className="w-5 h-5 text-amber-600 dark:text-yellow-400" />
+          <h3 className="text-lg font-bold text-amber-700 dark:text-yellow-400">Sacred Wisdom</h3>
         </div>
         <Button
           onClick={nextQuote}
           variant="ghost"
           size="sm"
-          className="text-gray-400 hover:text-yellow-400"
+          className="text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-yellow-400"
         >
           <RefreshCw className="w-4 h-4" />
         </Button>
@@ -52,16 +52,16 @@ export default function SpiritualQuotes() {
           className="space-y-4"
         >
           <div className="text-center">
-            <div className="text-2xl font-bold text-yellow-400 mb-2 leading-relaxed">
+            <div className="text-2xl font-bold text-amber-700 dark:text-yellow-400 mb-2 leading-relaxed">
               {spiritualQuotes[currentQuote].sanskrit}
             </div>
-            <div className="text-lg text-gray-300 italic mb-3">
+            <div className="text-lg text-gray-700 dark:text-gray-300 italic mb-3">
               {spiritualQuotes[currentQuote].transliteration}
             </div>
-            <div className="text-gray-100 leading-relaxed mb-2">
+            <div className="text-gray-800 dark:text-gray-100 leading-relaxed mb-2">
               {spiritualQuotes[currentQuote].meaning}
             </div>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-gray-600 dark:text-gray-400">
               — {spiritualQuotes[currentQuote].source}
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function SpiritualQuotes() {
             key={index}
             onClick={() => setCurrentQuote(index)}
             className={`w-2 h-2 rounded-full transition-colors ${
-              index === currentQuote ? 'bg-yellow-400' : 'bg-gray-600'
+              index === currentQuote ? 'bg-amber-600 dark:bg-yellow-400' : 'bg-gray-400 dark:bg-gray-600'
             }`}
           />
         ))}
