@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🕉️ श्री ललिता सहस्रनाम (Shri Lalita Sahasranama)
 
-## Getting Started
+A beautiful, interactive web application for exploring the sacred 1000 names of Goddess Lalita, providing daily divine names with meanings, transliterations, and spiritual insights.
 
-First, run the development server:
+## ✨ Features
 
+### 🌟 Core Functionality
+- **Daily Divine Name**: Displays today's divine name with Sanskrit text and transliteration
+- **1000 Sacred Names**: Complete collection of Lalita Sahasranama with meanings
+- **Multiple Tabs**: Organized content across Sahasranama, Meanings, Namavali, and Wisdom sections
+- **Progress Tracking**: Visual progress indicator showing completion status (currently 2% complete, verse 1 of 51)
+- **Streak Counter**: Track daily engagement and spiritual practice
+- **Favorites System**: Save and revisit meaningful names
+
+### 🎛️ Interactive Controls
+- **Auto Scroll**: Automatic progression through the names
+- **Adjustable Speed**: Customizable scroll speed (default: 5s)
+- **Shuffle Mode**: Random exploration of divine names
+- **Play/Pause Controls**: Full media-style navigation
+- **Manual Navigation**: Previous/Next verse controls
+
+### 🎨 Customization & Settings
+- **Display Options**:
+  - Font size adjustment (18px default)
+  - Display modes: "With Meaning" and other options
+  - Background themes including "Sri Yantra"
+- **Behavior Settings**:
+  - Show/Hide particles animation
+  - Notifications toggle
+  - Sound effects control with volume adjustment (70% default)
+
+### 🌙 User Experience
+- **Beautiful Loading Screen**: "Invoking Divine Presence..." with animated elements
+- **Responsive Design**: Works across different screen sizes
+- **Theme Support**: Dark and light modes with spiritual aesthetics
+- **Particle Effects**: Ambient visual enhancements
+- **Sacred Geometry**: Sri Yantra background theme option
+
+## 📱 Interface Sections
+
+### 1. **Sahasranama Tab**
+- Today's divine name display
+- Sanskrit text with transliteration
+- "Explore" button for detailed study
+
+### 2. **Meanings Tab** 
+- Detailed explanations of each name
+- Spiritual significance and context
+- Examples shown: श्री माता (Sri Mata) and श्री महाराज्ञी (Sri Maharajni)
+
+### 3. **Namavali Tab**
+- Organized list format of names
+- Quick navigation through the collection
+
+### 4. **Wisdom Tab**
+- Spiritual insights and teachings
+- Contextual wisdom related to the divine names
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Modern web browser with JavaScript enabled
+- Local development server (for localhost:3000)
+
+### Installation
+1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [https://github.com/prajwalom/lalita-sahasranama-website]
+cd lalita-sahasranama
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server
+```bash
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open your browser and navigate to `http://localhost:3000`
 
-## Learn More
+## 🛠️ Technology Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Styling**: Custom CSS with spiritual themes
+- **Fonts**: Support for Devanagari script
+- **Audio**: Web Audio API for sound effects
+- **Storage**: Local storage for user preferences and progress
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Basic Navigation
+1. Use the tab system to switch between different sections
+2. Control playback with the media controls (previous, play/pause, next)
+3. Adjust auto-scroll speed using the speed slider
+4. Toggle shuffle mode for random exploration
 
-## Deploy on Vercel
+### Customization
+1. Click the settings icon to open "Settings & Customization"
+2. Adjust display preferences:
+   - Modify font size for comfortable reading
+   - Select display mode (With Meaning, etc.)
+   - Choose background theme (Sri Yantra, etc.)
+3. Configure behavior settings:
+   - Enable/disable particle effects
+   - Toggle notifications
+   - Adjust sound effects and volume
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Progress Tracking
+- Your daily streak is automatically tracked
+- Progress through all 51 verses is saved
+- Favorite names can be bookmarked for quick access
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📊 Current Status
+- **Version**: 1.0
+- **Completion**: 2% (Verse 1 of 51)
+- **Current Streak**: 0 days
+- **Favorites**: 0 saved
+
+## 🙏 Spiritual Significance
+
+The Lalita Sahasranama is a sacred hymn containing 1000 names of the Divine Mother Lalita. This application serves as a digital companion for:
+- Daily spiritual practice
+- Learning Sanskrit divine names
+- Understanding the deeper meanings of each name
+- Building a consistent devotional routine
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit:
+- Bug fixes
+- Feature enhancements
+- Translation improvements
+- UI/UX improvements
+- Documentation updates
+
+## 📄 License
+
+This project is created for spiritual and educational purposes. Please respect the sacred nature of the content.
+
+## 🙏 Acknowledgments
+
+- Sacred texts and traditional sources for the Lalita Sahasranama
+- Sanskrit scholars for transliterations and meanings
+- The spiritual community for inspiration and guidance
+
+---
+
+**🕉️ ॐ श्री ललिता सहस्रनामावलि 🕉️**
+
+*"May this digital offering serve as a bridge between the seeker and the Divine Mother"*
